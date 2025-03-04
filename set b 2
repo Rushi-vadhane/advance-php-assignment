@@ -1,0 +1,7 @@
+//Write a PHP program to create a class Employee that contains data members as
+Emp_Name, Dept_name , Basic_sal,DA, HRA,TA , IT,PF,PT , GROSS,
+DEDUCTION ,NET . It hasmember functions calculate_gross , calculate_deductions ,
+Calculate_net_salary . Display pay slip of employee. Create and Initialize members
+Emp_Name, Dept_name , Basic_sal of Employee object by using parameterized constructo
+
+
