@@ -1,0 +1,32 @@
+//1) Create a class named DISTANCE with feet and inches as data members. The class has
+the following member functions: convert_feet_to_inch() , convert_inch_to_feet() .
+Display options using radio button and display conversion on next page.
+
+
+
+b1.php
+********
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distance Converter</title>
+</head>
+<body>
+    <h1>Distance Converter</h1>
+    <form action="convert.php" method="post">
+        <label>Select conversion type:</label><br>
+        <input type="radio" name="conversion_type" value="feet_to_inches" required> Feet to Inches<br>
+        <input type="radio" name="conversion_type" value="inches_to_feet" required> Inches to Feet<br><br>
+
+        <label for="value">Enter value:</label><br>
+        <input type="number" name="value" id="value" step="any" required><br><br>
+
+        <input type="submit" value="Convert">
+    </form>
+</body>
+</html>
+
+convert.php
+****************
