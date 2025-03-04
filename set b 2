@@ -2,6 +2,91 @@
 Emp_Name, Dept_name , Basic_sal,DA, HRA,TA , IT,PF,PT , GROSS,
 DEDUCTION ,NET . It hasmember functions calculate_gross , calculate_deductions ,
 Calculate_net_salary . Display pay slip of employee. Create and Initialize members
-Emp_Name, Dept_name , Basic_sal of Employee object by using parameterized constructo
+Emp_Name, Dept_name , Basic_sal of Employee object by using parameterized constructor.....
 
 
+<?php
+// Step 1: Define the Employee class
+class Employee {
+    // Data members
+    public $Emp_Name;
+    public $Dept_Name;
+    public $Basic_Sal;
+    public $DA;
+    public $HRA;
+    public $TA;
+    public $IT;
+    public $PF;
+    public $PT;
+    public $GROSS;
+    public $DEDUCTION;
+    public $NET;
+
+    // Parameterized constructor to initialize employee details
+    public function __construct($Emp_Name, $Dept_Name, $Basic_Sal) {
+        $this->Emp_Name = $Emp_Name;
+        $this->Dept_Name = $Dept_Name;
+        $this->Basic_Sal = $Basic_Sal;
+    }
+
+    // Method to calculate Gross Salary
+    public function calculate_gross() {
+        // Assuming some standard percentages for DA, HRA, and TA
+        $this->DA = $this->Basic_Sal * 0.20;  // 20% of Basic Salary
+        $this->HRA = $this->Basic_Sal * 0.15; // 15% of Basic Salary
+        $this->TA = $this->Basic_Sal * 0.10;  // 10% of Basic Salary
+        
+        // Calculating Gross Salary
+        $this->GROSS = $this->Basic_Sal + $this->DA + $this->HRA + $this->TA;
+    }
+
+    // Method to calculate Deductions
+    public function calculate_deductions() {
+        // Assuming standard deductions for IT (Income Tax), PF (Provident Fund), and PT (Professional Tax)
+        $this->IT = $this->Basic_Sal * 0.05;  // 5% of Basic Salary
+        $this->PF = $this->Basic_Sal * 0.12;  // 12% of Basic Salary
+        $this->PT = 200;                     // Fixed Professional Tax (example)
+        
+        // Calculating total deductions
+        $this->DEDUCTION = $this->IT + $this->PF + $this->PT;
+    }
+
+    // Method to calculate Net Salary
+    public function calculate_net_salary() {
+        // Net Salary is Gross Salary minus Total Deductions
+        $this->NET = $this->GROSS - $this->DEDUCTION;
+    }
+
+    // Method to display the Pay Slip
+    public function display_pay_slip() {
+        // Display Employee Pay Slip
+        echo "<h2>Employee Pay Slip</h2>";
+        echo "<strong>Employee Name:</strong> " . $this->Emp_Name . "<br>";
+        echo "<strong>Department:</strong> " . $this->Dept_Name . "<br>";
+        echo "<strong>Basic Salary:</strong> ₹" . number_format($this->Basic_Sal, 2) . "<br>";
+        echo "<strong>DA (Dearness Allowance):</strong> ₹" . number_format($this->DA, 2) . "<br>";
+        echo "<strong>HRA (House Rent Allowance):</strong> ₹" . number_format($this->HRA, 2) . "<br>";
+        echo "<strong>TA (Transport Allowance):</strong> ₹" . number_format($this->TA, 2) . "<br>";
+        echo "<strong>Gross Salary:</strong> ₹" . number_format($this->GROSS, 2) . "<br><br>";
+
+        echo "<strong>Deduction Details:</strong><br>";
+        echo "<strong>IT (Income Tax):</strong> ₹" . number_format($this->IT, 2) . "<br>";
+        echo "<strong>PF (Provident Fund):</strong> ₹" . number_format($this->PF, 2) . "<br>";
+        echo "<strong>PT (Professional Tax):</strong> ₹" . number_format($this->PT, 2) . "<br>";
+        echo "<strong>Total Deductions:</strong> ₹" . number_format($this->DEDUCTION, 2) . "<br><br>";
+
+        echo "<strong>Net Salary:</strong> ₹" . number_format($this->NET, 2) . "<br>";
+    }
+}
+
+// Step 2: Create Employee object and initialize with values using constructor
+$employee = new Employee("John Doe", "IT", 50000); // Example: Name, Department, and Basic Salary
+
+// Step 3: Calculate Gross, Deductions, and Net Salary
+$employee->calculate_gross();
+$employee->calculate_deductions();
+$employee->calculate_net_salary();
+
+// Step 4: Display the Employee Pay Slip
+$employee->display_pay_slip();
+?>
